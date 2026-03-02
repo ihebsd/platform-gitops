@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platform
+  namespace: argocd
+spec:
+  description: Platform components & apps managed by GitOps
+  sourceRepos:
+  - 'https://github.com/ihebsd/platform-gitops.git'
+  - 'git@github.com:ihebsd/platform-gitops.git'
+  destinations:
+  - server: https://kubernetes.default.svc
+    namespace: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
