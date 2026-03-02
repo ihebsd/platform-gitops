@@ -7,7 +7,7 @@ spec:
   project: platform
   source:
     repoURL: https://github.com/ihebsd/microservices.git
-    targetRevision: master
+    targetRevision: main
     path: environments/dev
     directory:
       recurse: true
