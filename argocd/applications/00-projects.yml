@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-api-dev
+  namespace: argocd
+spec:
+  project: platform
+  source:
+    repoURL: https://github.com/ihebsd/microservices.git
+    targetRevision: main
+    path: charts/hello-api
+    helm:
+      valueFiles:
+      - ../../environments/dev/values-hello-api.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
