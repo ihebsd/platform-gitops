@@ -7,6 +7,7 @@ spec:
   description: Platform components & apps managed by GitOps
   sourceRepos:
   - 'https://github.com/ihebsd/platform-gitops.git'
+  - 'https://github.com/ihebsd/microservices.git'
   - 'git@github.com:ihebsd/platform-gitops.git'
   destinations:
   - server: https://kubernetes.default.svc
